@@ -19,12 +19,11 @@ const config: any = {
   testDir: './tests',
   timeout: 180_000,
   expect: { timeout: 20_000 },
-  // list → console; html → playwright-report/ and junit → reports/ are picked up
-  // by HyperExecute (see partialReports in hyperexecute.yaml).
+  // list → console; html → playwright-report/, picked up by HyperExecute
+  // (see partialReports in hyperexecute.yaml).
   reporter: [
     ['list'],
     ['html', { open: 'never', outputFolder: 'playwright-report' }],
-    ['junit', { outputFile: 'reports/junit-results.xml' }],
   ],
   projects: [{ name: platform, use: { platform } }],
 };

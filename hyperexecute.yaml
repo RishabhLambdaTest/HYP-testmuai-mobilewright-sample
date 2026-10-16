@@ -45,12 +45,9 @@ jobLabel: ['mobilewright', 'android']
 # partial report into one job report.
 report: true
 partialReports:
-  - frameworkName: playwright
-    location: playwright-report
-    type: html
-  - frameworkName: junit
-    location: reports/
-    type: xml
+  frameworkName: playwright
+  location: playwright-report
+  type: html
 
 uploadArtefacts:
   - name: playwright-report

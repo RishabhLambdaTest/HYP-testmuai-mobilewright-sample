@@ -6,7 +6,6 @@ blob-report/
 npm-debug.log*
 *.tgz
 playwright-report/
-reports/
 
 # HyperExecute CLI binary and run leftovers
 /hyperexecute
@@ -16,3 +15,4 @@ hyperexecute-cli.log
 .hyperexecute/
 hyperexecute-code-*.zip
 mask-*.yaml
+mobilewright-report/
