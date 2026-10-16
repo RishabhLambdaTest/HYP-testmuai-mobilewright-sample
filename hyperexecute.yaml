@@ -6,7 +6,7 @@ testSuiteStep: 90
 runson: linux
 
 autosplit: true
-concurrency: 1
+concurrency: 3
 
 
 framework:
