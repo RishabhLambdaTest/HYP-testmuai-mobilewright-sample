@@ -1,0 +1,18 @@
+node_modules/
+test-results/
+.last-run.json
+blob-report/
+.env
+npm-debug.log*
+*.tgz
+playwright-report/
+reports/
+
+# HyperExecute CLI binary and run leftovers
+/hyperexecute
+hyperexecute.exe
+hyperexecute-cli.log
+.updatedhyperexecute.yaml
+.hyperexecute/
+hyperexecute-code-*.zip
+mask-*.yaml

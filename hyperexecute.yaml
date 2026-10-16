@@ -1,0 +1,61 @@
+version: 0.2
+globalTimeout: 90
+testSuiteTimeout: 90
+testSuiteStep: 90
+
+runson: linux
+
+autosplit: true
+concurrency: 1
+
+
+framework:
+  name: appium
+  args:
+    region: ap          
+    mobileDC: true
+
+runtime:
+  language: node
+  version: "22.12.0"
+
+env:
+  PLATFORM: android
+  LT_APP_ANDROID: lt://APP10160361731792136532158390
+
+pre:
+  - npm ci
+
+cacheKey: '{{ checksum "package-lock.json" }}'
+cacheDirectories:
+  - node_modules
+
+# One task per test: emits file:line for every test(...) declaration, e.g.
+# tests/home.test.ts:18. Plain grep, so it needs no node_modules.
+testDiscovery:
+  type: raw
+  mode: static
+  command: grep -nE "^\s*test\(" tests/*.test.ts | cut -d':' -f1,2
+
+testRunnerCommand: npx mobilewright test $test
+
+jobLabel: ['mobilewright', 'android']
+
+# Reporters are set in mobilewright.config.ts; HyperExecute merges each task's
+# partial report into one job report.
+report: true
+partialReports:
+  - frameworkName: playwright
+    location: playwright-report
+    type: html
+  - frameworkName: junit
+    location: reports/
+    type: xml
+
+uploadArtefacts:
+  - name: playwright-report
+    path:
+      - playwright-report/**
+  - name: test-results
+    path:
+      - test-results/**

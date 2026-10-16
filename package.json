@@ -1,0 +1,23 @@
+{
+  "name": "testmuai-mobilewright-sample",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "MobileWright sample: one config that targets a local device or testmuAI Cloud via an env switch, using the Proverbial sample app.",
+  "scripts": {
+    "test": "mobilewright test",
+    "typecheck": "tsc --noEmit"
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "devDependencies": {
+    "@mobilewright/core": "^0.0.60",
+    "@mobilewright/driver-mobilecli": "^0.0.60",
+    "@mobilewright/test": "^0.0.60",
+    "@testmuai/mobilewright": "^0.1.0",
+    "@types/node": "^20.0.0",
+    "mobilewright": "^0.0.60",
+    "typescript": "^5.4.0"
+  }
+}
